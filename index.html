@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartu Quotes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .title {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-template-rows: repeat(2, 180px);
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      width: 120px;
+      height: 180px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .card:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .card:nth-child(2) { grid-column: 3; grid-row: 1; }
+    .card:nth-child(3) { grid-column: 1; grid-row: 2; }
+    .card:nth-child(4) { grid-column: 2; grid-row: 2; }
+    .card:nth-child(5) { grid-column: 3; grid-row: 2; }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .popup.hidden {
+      display: none;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      animation: slideIn 0.3s ease-in-out;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #quoteText {
+      font-size: 18px;
+      color: #444;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+      from {transform: translateY(-30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Pilih Kartu untuk Mendapatkan Quotes</h1>
+
+  <div class="cards">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <span id="closeBtn" class="close">&times;</span>
+      <p id="quoteText"></p>
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll(".card");
+    const popup = document.getElementById("popup");
+    const closeBtn = document.getElementById("closeBtn");
+    const quoteText = document.getElementById("quoteText");
+
+    const quotes = [
+      "Hidup itu sederhana, kita yang membuatnya rumit.",
+      "Jangan menyerah, hal besar butuh waktu.",
+      "Bahagia bukan karena segalanya sempurna, tapi karena melihat yang sempurna dalam segalanya.",
+      "Kesempatan tidak datang dua kali.",
+      "Lakukan sekarang, besok belum tentu ada.",
+      "Percaya diri adalah kunci kesuksesan.",
+      "Hidup bukan menunggu badai reda, tapi belajar menari di tengah hujan.",
+      "Kegagalan adalah bagian dari proses menuju sukses.",
+      "Setiap hari adalah kesempatan baru.",
+      "Kamu lebih kuat dari yang kamu kira."
+    ];
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        quoteText.textContent = randomQuote;
+        popup.classList.remove("hidden");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+  </script>
+</body>
+</html>
