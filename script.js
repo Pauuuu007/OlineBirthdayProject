@@ -1,7 +1,4 @@
 const cards = document.querySelectorAll('.card');
-const popup = document.getElementById('popup');
-const closeBtn = document.getElementById('closeBtn');
-const quoteText = document.getElementById('quoteText');
 
 const quotes = [
   "Hidup adalah perjalanan, nikmati setiap langkahnya.",
@@ -18,19 +15,22 @@ const quotes = [
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
+    // ambil random quote
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteText.textContent = randomQuote;
-    popup.classList.remove('hidden');
+
+    // aktifkan efek
+    card.classList.add('active');
+    card.innerHTML = `
+      <span class="close">&times;</span>
+      <div class="quote">${randomQuote}</div>
+    `;
+
+    // tombol close
+    const closeBtn = card.querySelector('.close');
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      card.classList.remove('active');
+      card.innerHTML = ""; // reset isi kartu
+    });
   });
 });
-
-closeBtn.addEventListener('click', () => {
-  popup.classList.add('hidden');
-});
-
-popup.addEventListener('click', (e) => {
-  if (e.target === popup) {
-    popup.classList.add('hidden');
-  }
-});
-
