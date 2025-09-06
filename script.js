@@ -40,7 +40,7 @@ function createBoard() {
     card.innerHTML = `
       <div class="card-inner">
         <div class="card-back">
-          <img src="images/back.png" alt="back">
+          <img src="image/back.png" alt="back">
         </div>
         <div class="card-front">
           <img src="${symbol}" alt="card">
@@ -90,4 +90,5 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
 
