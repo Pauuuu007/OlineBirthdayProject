@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Game Pencocokan Gambar</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Cocokkan Kartu</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1 class="title">Pilih dan Cocokkan Pasangannya!</h1>
-    <p class="subtitle">Ada 5 pasang kartu. Setiap refresh, posisi diacak.</p>
-    <div class="hud">
-      <div>Langkah: <span id="moves">0</span></div>
-      <div>Cocok: <span id="matches">0</span>/5</div>
-      <button id="restart" aria-label="Mulai ulang">↻ Restart</button>
-    </div>
-  </header>
+  <h1>Pilih dan Cocokkan Pasangannya!</h1>
+  <p>Ada 5 pasang kartu. Setiap refresh, posisi diacak.</p>
 
-  <main>
-    <!-- papan: event delegation akan dipasang di sini -->
-    <div id="board" class="board" aria-label="Papan kartu" tabindex="0"></div>
-  </main>
+  <div class="status">
+    <span id="steps">Langkah: 0</span>
+    <span id="matches">Cocok: 0/5</span>
+    <button id="restart">🔄 Restart</button>
+  </div>
 
-  <footer>
-    <p class="hint">Klik dua kartu. Jika tidak sama, mereka akan tertutup kembali dan terdengar bunyi 'zonk'. Jika sama, akan ada bunyi 'benar'. (Bisa juga tekan Enter/Space saat kartu terfokus)</p>
-  </footer>
+  <div class="game-board" id="gameBoard"></div>
+
+  <p class="hint">
+    Klik dua kartu. Jika tidak sama, akan tertutup kembali dan terdengar bunyi 'zonk'. 
+    Jika sama, akan ada bunyi 'benar'.
+  </p>
+
+  <!-- Suara -->
+  <audio id="sound-correct" src="correct.mp3"></audio>
+  <audio id="sound-wrong" src="wrong.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
