@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Game Pencocokan Gambar</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,11 +18,12 @@
   </header>
 
   <main>
-    <div id="board" class="board" aria-label="Papan kartu"></div>
+    <!-- papan: event delegation akan dipasang di sini -->
+    <div id="board" class="board" aria-label="Papan kartu" tabindex="0"></div>
   </main>
 
   <footer>
-    <p class="hint">Klik dua kartu. Jika tidak sama, mereka akan tertutup kembali dan terdengar bunyi 'zonk'. Jika sama, akan ada bunyi 'benar'.</p>
+    <p class="hint">Klik dua kartu. Jika tidak sama, mereka akan tertutup kembali dan terdengar bunyi 'zonk'. Jika sama, akan ada bunyi 'benar'. (Bisa juga tekan Enter/Space saat kartu terfokus)</p>
   </footer>
 
   <script src="script.js"></script>
