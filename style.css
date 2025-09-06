@@ -1,154 +1,100 @@
-* { box-sizing: border-box; }
+/* Basic reset & vars */
+*{box-sizing:border-box}
 :root{
-  --card-w: 110px;
-  --card-h: 150px;
-  --radius: 14px;
-  --back: #1f2937; /* slate-800 */
-  --back-accent: #374151; /* slate-700 */
-  --front: #ffffff;
-  --brand1: #7c3aed; /* violet-600 */
-  --brand2: #06b6d4; /* cyan-500 */
+  --card-w:110px; --card-h:150px; --radius:12px;
+  --bg1:#0d1b2a; --bg2:#111827; --back:#1f2937;
+  --accent1:#7c3aed; --accent2:#06b6d4;
 }
 
+/* Page layout */
 body{
   margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, 'Apple Color Emoji','Segoe UI Emoji';
-  background: radial-gradient(1000px 500px at 10% 0%, #0d1b2a, #111827);
-  color:#e5e7eb;
   min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:24px;
+  background:radial-gradient(1000px 500px at 10% 0%,var(--bg1),var(--bg2));
+  color:#e5e7eb;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  display:flex; flex-direction:column; align-items:center; padding:28px;
+}
+.title{ font-weight:800; font-size:clamp(20px,4vw,32px); margin:0 0 6px; opacity:0; animation:fadeInTitle .9s ease forwards; }
+.subtitle{ margin:0 0 16px; opacity:.9; animation:fadeInTitle .9s .15s ease forwards; color: #cbd5e1; }
+
+/* HUD */
+.hud{ display:flex; gap:16px; align-items:center; justify-content:center; margin-bottom:18px; }
+#restart{
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  border:none; color:white; border-radius:999px; padding:8px 14px; font-weight:700;
+  cursor:pointer; box-shadow:0 8px 24px rgba(124,58,237,.28);
 }
 
-.title{
-  margin:0 0 4px 0;
-  font-weight:800;
-  font-size:clamp(20px, 4vw, 32px);
-  letter-spacing:.3px;
-  opacity:0;
-  animation:fadeInTitle 1.2s ease forwards;
-}
-.subtitle{
-  margin:0 0 16px 0;
-  opacity:.85;
-  font-size:clamp(12px, 2.6vw, 16px);
-  opacity:0;
-  animation:fadeInTitle 1.2s .15s ease forwards;
-}
-
-.hud{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:18px;
-}
-.hud #restart{
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  border:none;
-  color:white;
-  border-radius:999px;
-  padding:8px 14px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow: 0 8px 24px rgba(124,58,237,.35);
-  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
-}
-.hud #restart:hover{ transform: translateY(-1px); }
-.hud #restart:active{ transform: translateY(0); opacity:.9; }
-
+/* Board grid */
 .board{
-  width: min(100%, 640px);
+  width:min(100%,640px);
   display:grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5,1fr);
   gap:14px;
-  perspective: 1000px;
+  perspective:1000px;
   margin-inline:auto;
+  outline: none;
 }
 
+/* Card as button */
 .card{
+  display:block;
   width:100%;
   aspect-ratio: var(--card-w) / var(--card-h);
+  border-radius:var(--radius);
   position:relative;
+  transform-style:preserve-3d;
+  transition: transform .48s cubic-bezier(.2,.9,.2,1);
   cursor:pointer;
-  border-radius: var(--radius);
-  transform-style: preserve-3d;
-  transition: transform .5s ease;
+  background:transparent;
+  border:0;
+  padding:0;
   user-select:none;
+  -webkit-tap-highlight-color: transparent;
 }
-.card.is-matched{ cursor:default; }
 
-.card .face{
-  position:absolute;
-  inset:0;
-  border-radius: var(--radius);
+/* focus state for keyboard */
+.card:focus{ outline: 3px solid rgba(124,58,237,.22); transform: translateY(-4px) scale(1.02); }
+
+/* face (front/back) */
+.face{
+  position:absolute; inset:0; border-radius:inherit; display:flex; align-items:center; justify-content:center;
   backface-visibility:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  pointer-events:none; /* ensure click lands on .card button */
 }
 
-/* back */
-.card .back{
-  background: linear-gradient(135deg, var(--back), var(--back-accent));
-  border:1px solid #111827;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,.35);
+/* back design */
+.back{
+  background: linear-gradient(135deg,var(--back), #374151);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 8px 20px rgba(0,0,0,.35);
 }
-.card .back::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius: inherit;
-  background:
-    radial-gradient(18px 18px at 20% 25%, rgba(255,255,255,.08), transparent 60%),
-    radial-gradient(18px 18px at 80% 75%, rgba(255,255,255,.06), transparent 60%);
-  pointer-events:none;
-}
-.card .back .dot{
-  width:22px; height:22px; border-radius:999px;
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  box-shadow: 0 6px 18px rgba(6,182,212,.35);
+.back .dot{
+  width:22px; height:22px; border-radius:999px; background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  box-shadow: 0 6px 18px rgba(6,182,212,.25);
 }
 
-/* front */
-.card .front{
-  background: var(--front);
-  transform: rotateY(180deg);
+/* front (revealed) */
+.front{
+  background: #fff;
   color:#0f172a;
-  border:1px solid #e5e7eb;
-  box-shadow: 0 10px 28px rgba(0,0,0,.2);
+  transform: rotateY(180deg);
+  border:1px solid #e6eef5;
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
   font-size:48px;
 }
 
 /* flip state */
 .card.is-flipped{ transform: rotateY(180deg); }
 
-/* deal-in animation (cards appear one-by-one) */
-.card{
-  opacity:0;
-  transform: translateY(12px) rotateY(0);
-  animation: deal .6s ease forwards;
-}
-@keyframes deal{
-  to{ opacity:1; transform: translateY(0) rotateY(0); }
-}
+/* matched visual */
+.card.is-matched{ cursor:default; filter: saturate(1.05) drop-shadow(0 10px 28px rgba(0,0,0,.15)); }
 
-/* responsive */
-@media (max-width: 640px){
-  .board{ gap:12px; }
-  .card .front{ font-size:42px; }
-}
+/* entrance/deal animation */
+.card{ opacity:0; transform: translateY(12px) rotateY(0); animation:deal .55s ease forwards; }
+@keyframes deal{ to{ opacity:1; transform:translateY(0) rotateY(0); } }
 
-/* title fade-in */
-@keyframes fadeInTitle{
-  from{ opacity:0; transform: translateY(-10px); }
-  to{ opacity:1; transform: translateY(0); }
-}
+/* title fade */
+@keyframes fadeInTitle{ from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:translateY(0)} }
 
-.hint{
-  opacity:.7;
-  font-size:12px;
-  margin-top:18px;
-}
+.hint{ margin-top:18px; opacity:.75; font-size:13px; color:#cbd5e1; }
