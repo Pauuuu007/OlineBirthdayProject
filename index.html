@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kartu Quotes</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Pencocokan Gambar</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="title">Pilih salah satu untuk mendapatkan Quotes</h1>
+  <header>
+    <h1 class="title">Pilih dan Cocokkan Pasangannya!</h1>
+    <p class="subtitle">Ada 5 pasang kartu. Setiap refresh, posisi diacak.</p>
+    <div class="hud">
+      <div>Langkah: <span id="moves">0</span></div>
+      <div>Cocok: <span id="matches">0</span>/5</div>
+      <button id="restart" aria-label="Mulai ulang">↻ Restart</button>
+    </div>
+  </header>
 
-  <div class="cards">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-  </div>
+  <main>
+    <div id="board" class="board" aria-label="Papan kartu"></div>
+  </main>
+
+  <footer>
+    <p class="hint">Klik dua kartu. Jika tidak sama, mereka akan tertutup kembali dan terdengar bunyi 'zonk'. Jika sama, akan ada bunyi 'benar'.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
