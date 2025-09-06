@@ -13,11 +13,11 @@ let lockBoard = false;
 
 // Daftar gambar depan
 const images = [
-  "images/1.png", 
-  "images/2.png", 
-  "images/3.png", 
-  "images/4.png", 
-  "images/5.png"
+  "image/1.png", 
+  "image/2.png", 
+  "image/3.png", 
+  "image/4.png", 
+  "image/5.png"
 ];
 
 let cards = [...images, ...images]; // gandakan jadi 10 kartu
@@ -90,3 +90,4 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
