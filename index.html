@@ -7,21 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pilih dan Cocokkan Pasangannya!</h1>
-  <p>Ada 5 pasang kartu. Setiap refresh, posisi diacak.</p>
+  <h1>Temukan muka Oline yang sama!</h1>
+  <p>Ada 5 set muka Oline, bisakah kamu mencocokannya?</p>
 
   <div class="status">
-    <span id="steps">Langkah: 0</span>
-    <span id="matches">Cocok: 0/5</span>
+    <span id="steps">Percobaan: 0</span>
+    <span id="matches">Ketemu: 0/5</span>
     <button id="restart">🔄 Restart</button>
   </div>
 
   <div class="game-board" id="gameBoard"></div>
-
-  <p class="hint">
-    Klik dua kartu. Jika tidak sama, akan tertutup kembali dan terdengar bunyi 'zonk'. 
-    Jika sama, akan ada bunyi 'benar'.
-  </p>
 
   <!-- Suara -->
   <audio id="sound-correct" src="correct.mp3"></audio>
@@ -30,3 +25,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
