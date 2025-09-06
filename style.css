@@ -27,15 +27,18 @@ button {
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(5, 100px);
-  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
   justify-content: center;
   margin-top: 20px;
+  max-width: 500px;   /* supaya pas di desktop */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
-  width: 100px;
-  height: 140px;
+  width: 100%;
+  aspect-ratio: 5 / 7; /* biar bentuknya selalu proporsional */
   perspective: 1000px;
   cursor: pointer;
 }
@@ -58,22 +61,4 @@ button {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
-}
-
-/* ✅ ini bagian gambar dalam kartu */
-.card-back img,
-.card-front img {
-  width: 100%;
-  height: auto;         /* supaya proporsional */
-  border-radius: 12px;  /* rounded lebih smooth */
-  object-fit: cover;
-}
-
-.card-back {
-  transform: rotateY(0deg);
-}
-
-.card-front {
-  transform: rotateY(180deg);
-}
+  border-radius
