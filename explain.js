@@ -5,11 +5,11 @@ const closeModal = document.getElementById("closeModal");
 
 // Daftar gambar + penjelasan
 const cards = [
-  { img: "image/1.png", text: "Gambar ini melambangkan semangat dan keberanian untuk memulai sesuatu yang baru." },
-  { img: "image/2.png", text: "Simbol dari kesetiaan dan ketulusan hati terhadap orang yang kita pedulikan." },
-  { img: "image/3.png", text: "Menggambarkan keberuntungan dan harapan yang tidak boleh hilang." },
-  { img: "image/4.png", text: "Artinya waktu istirahat dan ketenangan yang kamu butuhkan untuk kembali fokus." },
-  { img: "image/5.png", text: "Mewakili cinta sederhana tapi bermakna yang tumbuh dari hal-hal kecil." }
+  { img: "image/Card depan (Anomaline).png", text: "A" },
+  { img: "image/Card depan (Cireng keju).png", text: "B" },
+  { img: "image/Card depan (Clover).png", text: "C" },
+  { img: "image/Card depan (Coffe).JPG", text: "D" },
+  { img: "image/Card depan (Kiyo).png", text: "E" }
 ];
 
 // Buat kartu secara dinamis
