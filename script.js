@@ -66,24 +66,27 @@ function flipCard(card, symbol) {
     updateStatus();
 
     if (firstCard.symbol === symbol) {
-      matches++;
-      updateStatus();
-      soundCorrect.play();
-      if (matches === 5) {
+  matches++;
+  updateStatus();
+  soundCorrect.play();
+
+  if (matches === 5) {
     setTimeout(() => {
       nextPageBtn.classList.remove("hidden");
     }, 600);
   }
-      firstCard = null;
-    } else {
-      lockBoard = true;
-      soundWrong.play();
-      setTimeout(() => {
-        card.classList.remove("flipped");
-        firstCard.card.classList.remove("flipped");
-        firstCard = null;
-        lockBoard = false;
-      }, 1000);
+
+  firstCard = null;
+} else {
+  lockBoard = true;
+  soundWrong.play();
+  setTimeout(() => {
+    card.classList.remove("flipped");
+    firstCard.card.classList.remove("flipped");
+    firstCard = null;
+    lockBoard = false;
+  }, 1000);
+}
     }
   }
 }
@@ -97,4 +100,5 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
 
