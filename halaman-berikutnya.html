@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +17,7 @@
 
     .explain-card {
       width: 100%;
-      max-width: 150px; /* biar ukurannya sama kayak kartu sebelumnya */
+      max-width: 150px;
       aspect-ratio: 5 / 7;
       border-radius: 12px;
       overflow: hidden;
@@ -34,7 +36,6 @@
       transform: scale(1.05);
     }
 
-    /* biar popup penjelasan rapi */
     .popup {
       display: none;
       position: fixed;
@@ -61,3 +62,18 @@
     }
   </style>
 </head>
+<body>
+  <h1>Penjelasan Gambar</h1>
+  <p>Klik salah satu gambar untuk melihat maknanya!</p>
+
+  <div class="explain-container" id="explainContainer"></div>
+
+  <!-- Pop-up -->
+  <div id="popup" class="popup">
+    <p id="popupText"></p>
+    <button id="closePopup">Tutup</button>
+  </div>
+
+  <script src="explain.js"></script>
+</body>
+</html>
