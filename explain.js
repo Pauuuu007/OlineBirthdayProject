@@ -1,7 +1,7 @@
-const explainBoard = document.getElementById("explainBoard");
-const modal = document.getElementById("modal");
-const modalText = document.getElementById("modalText");
-const closeModal = document.getElementById("closeModal");
+const explainContainer = document.getElementById("explainContainer");
+const popup = document.getElementById("popup");
+const popupText = document.getElementById("popupText");
+const closePopup = document.getElementById("closePopup");
 
 // Daftar gambar + penjelasan
 const cards = [
@@ -12,19 +12,20 @@ const cards = [
   { img: "image/Card depan (Kiyo).png", text: "E" }
 ];
 
-// Buat kartu secara dinamis
-cards.forEach(item => {
+// buat tampilan 5 kartu vertikal
+explanations.forEach(item => {
   const card = document.createElement("div");
   card.classList.add("explain-card");
-  card.innerHTML = `<img src="${item.img}" alt="Kartu">`;
+  card.innerHTML = `<img src="${item.img}" alt="gambar">`;
+
   card.addEventListener("click", () => {
-    modalText.textContent = item.text;
-    modal.classList.remove("hidden");
+    popupText.textContent = item.text;
+    popup.style.display = "block";
   });
-  explainBoard.appendChild(card);
+
+  explainContainer.appendChild(card);
 });
 
-// Tutup modal
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
+closePopup.addEventListener("click", () => {
+  popup.style.display = "none";
 });
