@@ -88,4 +88,32 @@ button {
 
 .card-front {
   transform: rotateY(180deg);
+
+  /* Warna teks jadi hitam */
+h1, p, .status, #steps, #matches {
+  color: #000;
 }
+
+/* Tombol "Lanjut" (disembunyikan dulu) */
+.next-btn {
+  margin-top: 25px;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background: #218838;
+}
+
+/* Class untuk sembunyiin tombol */
+.hidden {
+  display: none;
+}
+}
+
