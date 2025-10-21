@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: "image/Background.png"
+  background: "image/Background.jpg"
   color: #f8fafc;
   text-align: center;
   margin: 0;
@@ -75,3 +75,4 @@ button {
 .card-front {
   transform: rotateY(180deg);
 }
+
