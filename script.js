@@ -2,6 +2,8 @@ const gameBoard = document.getElementById("gameBoard");
 const stepsText = document.getElementById("steps");
 const matchesText = document.getElementById("matches");
 const restartBtn = document.getElementById("restart");
+const nextPageBtn = document.getElementById("nextPage");
+
 
 const soundCorrect = document.getElementById("sound-correct");
 const soundWrong = document.getElementById("sound-wrong");
@@ -67,6 +69,11 @@ function flipCard(card, symbol) {
       matches++;
       updateStatus();
       soundCorrect.play();
+      if (matches === 5) {
+    setTimeout(() => {
+      nextPageBtn.classList.remove("hidden");
+    }, 600);
+  }
       firstCard = null;
     } else {
       lockBoard = true;
@@ -90,3 +97,4 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
