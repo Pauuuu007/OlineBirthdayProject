@@ -111,9 +111,8 @@ h1, p, .status, #steps, #matches {
   background: #218838;
 }
 
-/* Class untuk sembunyiin tombol */
 .hidden {
   display: none;
 }
-}
+
 
