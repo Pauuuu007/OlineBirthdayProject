@@ -16,7 +16,7 @@ const images = [
   "image/Card depan (Anomaline).png", 
   "image/Card depan (Cireng keju).png", 
   "image/Card depan (Clover).png", 
-  "image/Card depan (Coffe).jpg", 
+  "image/Card depan (Coffe).JPG", 
   "image/Card depan (Kiyo).png"
 ];
 
@@ -90,6 +90,7 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
 
 
 
