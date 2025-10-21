@@ -1,23 +1,18 @@
-/* ====== BACKGROUND ====== */
 body {
   font-family: Arial, sans-serif;
-  /* fallback warna gelap kalau gambar gak ketemu */
   background-color: #0f172a;
-  /* gambar background */
-  background-image: url("image/Background.png");
+  background-image: url("image/Background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 
-  /* biar teks tetap kebaca */
   color: #f8fafc;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
 
-/* ====== TEKS DAN TOMBOL ====== */
 h1 {
   margin-bottom: 5px;
   color: #ffffff;
@@ -94,3 +89,4 @@ button {
 .card-front {
   transform: rotateY(180deg);
 }
+
