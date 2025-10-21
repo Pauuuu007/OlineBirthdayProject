@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cocokkan Kartu</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bantu Oline Mencocokkan Gambar</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bantu Oline mencocokan gambar ini!</h1>
-  <p>Ada 5 set kartu, bisakah kamu mencocokannya?</p>
+  <div class="container">
+    <h1>Bantu Oline mencocokkan gambar ini!</h1>
+    <p>Ada 5 set kartu, bisakah kamu mencocokkannya?</p>
+    <div class="status">
+      <span id="steps">Langkah: 0</span>
+      <span id="matches">Cocok: 0/5</span>
+      <button id="restart">🔁 Restart</button>
+    </div>
+    <div id="gameBoard" class="game-board"></div>
 
-  <div class="status">
-    <span id="steps">Percobaan: 0</span>
-    <span id="matches">Ketemu: 0/5</span>
-    <button id="restart">🔄 Restart</button>
+    <!-- Tombol lanjut (disembunyikan dulu) -->
+    <button id="nextPage" class="next-btn hidden">Lanjut ke Halaman Berikutnya ➜</button>
   </div>
 
-  <div class="game-board" id="gameBoard"></div>
-
-  <!-- Suara -->
-  <audio id="sound-correct" src="correct.mp3"></audio>
-  <audio id="sound-wrong" src="wrong.mp3"></audio>
+  <audio id="sound-correct" src="sound/correct.mp3"></audio>
+  <audio id="sound-wrong" src="sound/wrong.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
