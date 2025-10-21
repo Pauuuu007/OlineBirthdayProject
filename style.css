@@ -89,3 +89,18 @@ button {
 .card-front {
   transform: rotateY(180deg);
 }
+
+.hidden {
+  display: none;
+}
+
+#nextPageBtn {
+  margin-top: 20px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
