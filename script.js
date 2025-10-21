@@ -2,6 +2,7 @@ const gameBoard = document.getElementById("gameBoard");
 const stepsText = document.getElementById("steps");
 const matchesText = document.getElementById("matches");
 const restartBtn = document.getElementById("restart");
+const nextPageBtn = document.getElementById("nextPage");
 
 const soundCorrect = document.getElementById("sound-correct");
 const soundWrong = document.getElementById("sound-wrong");
@@ -11,7 +12,6 @@ let matches = 0;
 let firstCard = null;
 let lockBoard = false;
 
-// Daftar gambar depan
 const images = [
   "image/Card depan (Anomaline).png", 
   "image/Card depan (Cireng keju).png", 
@@ -20,7 +20,8 @@ const images = [
   "image/Card depan (Kiyo).png"
 ];
 
-let cards = [...images, ...images]; // gandakan jadi 10 kartu
+let cards = [...images, ...images];
+const totalPairs = images.length;
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -31,6 +32,7 @@ function createBoard() {
   steps = 0;
   matches = 0;
   updateStatus();
+  nextPageBtn.classList.add("hidden"); // sembunyikan tombol next saat mulai game baru
 
   cards = shuffle(cards);
 
@@ -40,7 +42,7 @@ function createBoard() {
     card.innerHTML = `
       <div class="card-inner">
         <div class="card-back">
-          <img src="image/CardBelakang.png" alt="back">
+          <img src="image/CardBelakang.jpg" alt="back">
         </div>
         <div class="card-front">
           <img src="${symbol}" alt="card">
@@ -68,6 +70,12 @@ function flipCard(card, symbol) {
       updateStatus();
       soundCorrect.play();
       firstCard = null;
+
+      if (matches === totalPairs) {
+        setTimeout(() => {
+          nextPageBtn.classList.remove("hidden"); // tampilkan tombol next
+        }, 500);
+      }
     } else {
       lockBoard = true;
       soundWrong.play();
@@ -83,14 +91,12 @@ function flipCard(card, symbol) {
 
 function updateStatus() {
   stepsText.textContent = `Langkah: ${steps}`;
-  matchesText.textContent = `Cocok: ${matches}/5`;
+  matchesText.textContent = `Cocok: ${matches}/${totalPairs}`;
 }
 
 restartBtn.addEventListener("click", createBoard);
+nextPageBtn.addEventListener("click", () => {
+  window.location.href = "halaman-berikutnya.html"; // ubah ke file halaman berikut kamu
+});
 
-// mulai game pertama kali
 createBoard();
-
-
-
-
