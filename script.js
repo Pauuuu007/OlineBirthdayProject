@@ -2,6 +2,7 @@ const gameBoard = document.getElementById("gameBoard");
 const stepsText = document.getElementById("steps");
 const matchesText = document.getElementById("matches");
 const restartBtn = document.getElementById("restart");
+const nextPageBtn = document.getElementById("nextPageBtn");
 
 const soundCorrect = document.getElementById("sound-correct");
 const soundWrong = document.getElementById("sound-wrong");
@@ -64,20 +65,28 @@ function flipCard(card, symbol) {
     updateStatus();
 
     if (firstCard.symbol === symbol) {
-      matches++;
-      updateStatus();
-      soundCorrect.play();
-      firstCard = null;
-    } else {
-      lockBoard = true;
-      soundWrong.play();
-      setTimeout(() => {
-        card.classList.remove("flipped");
-        firstCard.card.classList.remove("flipped");
-        firstCard = null;
-        lockBoard = false;
-      }, 1000);
-    }
+  matches++;
+  updateStatus();
+  soundCorrect.play();
+
+  // Kalau semua kartu sudah cocok
+  if (matches === 5) {
+    setTimeout(() => {
+      nextPageBtn.classList.remove("hidden");
+    }, 500); // delay setengah detik biar halus
+  }
+
+  firstCard = null;
+} else {
+  lockBoard = true;
+  soundWrong.play();
+  setTimeout(() => {
+    card.classList.remove("flipped");
+    firstCard.card.classList.remove("flipped");
+    firstCard = null;
+    lockBoard = false;
+  }, 1000);
+}
   }
 }
 
@@ -90,3 +99,4 @@ restartBtn.addEventListener("click", createBoard);
 
 // mulai game pertama kali
 createBoard();
+
