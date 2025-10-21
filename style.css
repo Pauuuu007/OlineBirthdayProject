@@ -1,56 +1,54 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  background-image: url("image/Background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  background: url("image/Background.png") no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
-
-  color: #f8fafc;
-  text-align: center;
+  color: #111; /* tulisan hitam pekat biar jelas di background terang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
-  padding: 20px;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 h1 {
-  margin-bottom: 5px;
-  color: #0000000;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #000;
 }
 
 .status {
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
-button {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: linear-gradient(90deg, #3b82f6, #9333ea);
+#restart {
+  background: #7b2ff7;
   color: white;
-  font-weight: bold;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* ====== GAME BOARD ====== */
-.game-board {
+#gameBoard {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(5, 100px);
+  gap: 10px;
   justify-content: center;
   margin-top: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* ====== CARD STYLE ====== */
 .card {
-  aspect-ratio: 5 / 7;
-  width: 100%;
+  width: 100px;
+  height: 140px;
   perspective: 1000px;
-  cursor: pointer;
 }
 
 .card-inner {
@@ -71,23 +69,35 @@ button {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-.card-back img,
-.card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .card-back {
-  transform: rotateY(0deg);
+  background-color: #eee;
 }
 
 .card-front {
   transform: rotateY(180deg);
 }
 
+.next-btn {
+  margin-top: 25px;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.next-btn:hover {
+  background: #218838;
+}
+
+/* disembunyikan dari awal */
+.hidden {
+  display: none;
+}
