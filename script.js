@@ -100,3 +100,9 @@ restartBtn.addEventListener("click", createBoard);
 // mulai game pertama kali
 createBoard();
 
+// pindah halaman berikutnya
+nextPageBtn.addEventListener("click", () => {
+  window.location.href = "halaman-berikutnya.html";
+});
+
+
