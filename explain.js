@@ -5,11 +5,11 @@ const closeModal = document.getElementById("closeModal");
 
 // Daftar gambar + penjelasan
 const cards = [
-  { img: "image/Card depan (Anomaline).png", text: "Anomaline melambangkan hal-hal yang tampak berbeda tapi tetap menarik perhatian, sama seperti sisi unik Oline." },
-  { img: "image/Card depan (Cireng keju).png", text: "Cireng keju menggambarkan kehangatan dan kesederhanaan yang justru bikin nyaman." },
-  { img: "image/Card depan (Clover).png", text: "Clover adalah simbol keberuntungan — seolah semesta selalu kasih alasan buat senyum." },
-  { img: "image/Card depan (Coffe).JPG", text: "Kopi menggambarkan rutinitas tenang tapi berarti, seperti obrolan kecil yang jadi hangat." },
-  { img: "image/Card depan (Kiyo).png", text: "Kiyo mewakili karakter lembut tapi kuat — kayak Oline yang nggak banyak bicara tapi dalam." }
+  { img: "image/Card depan (Anomaline).png", text: "A" },
+  { img: "image/Card depan (Cireng keju).png", text: "B" },
+  { img: "image/Card depan (Clover).png", text: "C" },
+  { img: "image/Card depan (Coffe).JPG", text: "D" },
+  { img: "image/Card depan (Kiyo).png", text: "E" }
 ];
 
 // Buat kartu secara dinamis
