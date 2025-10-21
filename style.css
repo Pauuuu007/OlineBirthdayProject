@@ -1,9 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("image/Background.png") no-repeat center center fixed;
-  background-size: cover;
+  background: "image/Background.png"
   color: #f8fafc;
   text-align: center;
   margin: 0;
@@ -12,8 +9,6 @@ body {
 
 h1 {
   margin-bottom: 5px;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .status {
@@ -32,18 +27,15 @@ button {
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(5, 100px);
   grid-gap: 15px;
   justify-content: center;
   margin-top: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .card {
-  aspect-ratio: 5 / 7;
-  width: 100%;
+  width: 100px;
+  height: 140px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -65,14 +57,14 @@ button {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .card-back img,
 .card-front img {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   object-fit: cover;
 }
 
