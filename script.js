@@ -18,7 +18,8 @@ const images = [
   "image/Card depan (Cireng keju).png", 
   "image/Card depan (Clover).png", 
   "image/Card depan (Coffe).JPG", 
-  "image/Card depan (Kiyo).png"
+  "image/Card depan (Kiyo).png",
+  "image/Card depan (Ayam Mozzarela).jpg"
 ];
 
 let cards = [...images, ...images]; // gandakan jadi 10 kartu
@@ -70,7 +71,7 @@ function flipCard(card, symbol) {
   soundCorrect.play();
 
   // Kalau semua kartu sudah cocok
-  if (matches === 5) {
+  if (matches === 6) {
     setTimeout(() => {
       nextPageBtn.classList.remove("hidden");
     }, 500); // delay setengah detik biar halus
@@ -104,5 +105,6 @@ createBoard();
 nextPageBtn.addEventListener("click", () => {
   window.location.href = "halaman-berikutnya.html";
 });
+
 
 
