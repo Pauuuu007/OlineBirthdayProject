@@ -93,7 +93,7 @@ function flipCard(card, symbol) {
 
 function updateStatus() {
   stepsText.textContent = `Langkah: ${steps}`;
-  matchesText.textContent = `Cocok: ${matches}/5`;
+  matchesText.textContent = `Cocok: ${matches}/6`;
 }
 
 restartBtn.addEventListener("click", createBoard);
@@ -105,6 +105,7 @@ createBoard();
 nextPageBtn.addEventListener("click", () => {
   window.location.href = "halaman-berikutnya.html";
 });
+
 
 
 
