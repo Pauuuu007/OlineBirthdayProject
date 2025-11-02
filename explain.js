@@ -37,7 +37,7 @@ const bgMusic = document.getElementById("bgMusic");
 
 // Coba langsung play setelah halaman load
 window.addEventListener("load", () => {
-  bgMusic.volume = 2; // biar gak terlalu kenceng
+  bgMusic.volume = 4; // biar gak terlalu kenceng
   const playPromise = bgMusic.play();
   
   // Kalau browser blokir autoplay, tunggu interaksi pertama
