@@ -107,5 +107,21 @@ nextPageBtn.addEventListener("click", () => {
 });
 
 
+window.addEventListener("load", () => {
+  bgMusic.volume = 4; // biar gak terlalu kenceng
+  const playPromise = bgMusic.play();
+  
+  // Kalau browser blokir autoplay, tunggu interaksi pertama
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      document.body.addEventListener("click", () => {
+        bgMusic.play();
+      }, { once: true });
+    });
+  }
+});
+
+
+
 
 
