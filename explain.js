@@ -31,3 +31,21 @@ cards.forEach(item => {
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
+
+// ==== BACKSOUND ====
+const bgMusic = document.getElementById("bgMusic");
+
+// Coba langsung play setelah halaman load
+window.addEventListener("load", () => {
+  bgMusic.volume = 0.5; // biar gak terlalu kenceng
+  const playPromise = bgMusic.play();
+  
+  // Kalau browser blokir autoplay, tunggu interaksi pertama
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      document.body.addEventListener("click", () => {
+        bgMusic.play();
+      }, { once: true });
+    });
+  }
+});
