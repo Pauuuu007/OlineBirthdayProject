@@ -6,6 +6,7 @@ const nextPageBtn = document.getElementById("nextPageBtn");
 
 const soundCorrect = document.getElementById("sound-correct");
 const soundWrong = document.getElementById("sound-wrong");
+const bgMusic = document.getElementById("bgMusic");
 
 let steps = 0;
 let matches = 0;
@@ -108,7 +109,7 @@ nextPageBtn.addEventListener("click", () => {
 
 
 window.addEventListener("load", () => {
-  bgMusic.volume = 4; // biar gak terlalu kenceng
+  bgMusic.volume = 0.5; // biar gak terlalu kenceng
   const playPromise = bgMusic.play();
   
   // Kalau browser blokir autoplay, tunggu interaksi pertama
@@ -120,6 +121,7 @@ window.addEventListener("load", () => {
     });
   }
 });
+
 
 
 
